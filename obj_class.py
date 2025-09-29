@@ -133,3 +133,53 @@ s1.set_age(21)  # ✅ Update via setter
 print(s1.get_age())
 
 s1.set_age(-5)  # ❌ Invalid update
+
+
+# del keyword
+
+class Person1:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person1("John", 36)
+print(p1.name)
+print(p1.age)
+del p1.age
+# print(p1.age) # this will raise an AttributeError since age has been deleted
+del p1
+# print(p1.name) # this will raise an NameError since p1 has been deleted
+
+
+# private attributes and methods
+
+class Account:
+   def __init__(self,acc_no,acc_pass):
+      self.acc_no = acc_no          # public attribute
+      self.__acc_pass = acc_pass      # private attribute
+
+acc1=Account("123456789", "mypassword")
+print(acc1.acc_no)          # Accessing public attribute
+# print(acc1.__acc_pass)      # Trying to access private attribute (will raise an AttributeError)
+
+
+
+# inheritance
+
+class Car:
+   @staticmethod
+   def start():
+        print("car started")
+
+   @staticmethod
+   def stop():
+       print("car stopped")
+
+class toyota(Car):  # inheritance
+         def __init__(self,name):
+            self.name=name
+          
+car1=toyota("corolla")
+print(car1.name)
+print(car1.start())
+
